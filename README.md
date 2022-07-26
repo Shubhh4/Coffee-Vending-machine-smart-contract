@@ -19,6 +19,7 @@ function getBalance() public view returns (uint) {
 return coffeeBalances[address(this)];
 
 }
+
 function restock(uint amount) public {
 
 require(msg.sender == owner, "Only owner able to restock the coffee");
@@ -26,6 +27,7 @@ require(msg.sender == owner, "Only owner able to restock the coffee");
 coffeeBalances[address(this)]+= amount;
 
 }
+
 function purchase(uint amount) public payable{
 
 require(msg.value >= amount * 0.4 ether, "You've to pay atleast 1 ether for one coffee");
