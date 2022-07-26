@@ -5,9 +5,12 @@ pragma solidity ^0.8.0;
 
 contract vendingMachine{
     address public owner;
+    
     mapping(address => uint) public coffeeBalances;
+    
     constructor(){
         owner = msg.sender;
+        
         coffeeBalances[address(this)] = 100;
 }
 
@@ -19,6 +22,7 @@ return coffeeBalances[address(this)];
 function restock(uint amount) public {
 
 require(msg.sender == owner, "Only owner able to restock the coffee");
+
 coffeeBalances[address(this)]+= amount;
 
 }
